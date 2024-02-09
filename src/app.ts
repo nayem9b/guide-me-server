@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use("/api/v1", router);
 
 app.get("/", async (req: Request, res: Response, next: NextFunction) => {
-  res.send("Welcome to Guideme");
+  res.send("Welcome to Container");
 });
 
 export default app;
