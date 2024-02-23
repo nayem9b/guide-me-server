@@ -20,6 +20,6 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 // app.use("/api/v1", router);
 app.get("/", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send("Welcome to Sheba.xyzww");
+    res.send("Welcome to Sheba.xy");
 }));
 exports.default = app;
