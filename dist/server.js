@@ -17,7 +17,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     app_1.default.listen(PORT, () => {
-        console.log(`Server s running on port ${PORT} `);
+        console.log(`Server is running on port ${PORT} `);
     });
 });
 main();
