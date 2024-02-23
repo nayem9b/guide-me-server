@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use("/api/v1", router);
 
 app.get("/", async (req: Request, res: Response, next: NextFunction) => {
-  res.send("Welcome to Guide Me on vercel");
+  res.send("Welcome to Guide Me on vercel build testing");
 });
 
 export default app;
