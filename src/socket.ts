@@ -40,4 +40,44 @@ io.on("connection", (socket) => {
       socket.in(user._id).emit("message-recieved", { message, notification });
     });
   });
+
+    // Calling
+    socket.on("local-user-joined", ({ to }) => {
+      io.to(to).emit("local-user-joined", { from: socket.id });
+    });
+  
+    socket.on("call-remote-user", ({ to, offer, isVideoCall }) => {
+      io.to(to).emit("incoming-call", { from: socket.id, offer, isVideoCall });
+    });
+  
+    socket.on("call-accepted", ({ answer, to }) => {
+      io.to(to).emit("call-accepted", { from: socket.id, answer });
+    });
+  
+    socket.on("call-rejected", ({ to }) => {
+      io.to(to).emit("call-rejected");
+    });
+  
+    socket.on("nego-needed", ({ offer, to }) => {
+      io.to(to).emit("nego-incoming", { from: socket.id, offer });
+    });
+  
+    socket.on("nego-done", ({ answer, to }) => {
+      io.to(to).emit("nego-final", { from: to, answer });
+    });
+  
+    socket.on("end-call", ({ to }) => {
+      io.to(to).emit("call-ended");
+    });
+  
+    // socket.on("error", ({ to }) => {
+    //   io.to(to).emit("error-occured");
+    // });
+  
+    socket.on("miss-call", ({ to, from }) => {
+      socket.in(to).emit("call-missed", { from });
+    });
+
+
+
 });
