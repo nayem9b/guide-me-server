@@ -4,8 +4,8 @@
   "main": "dist/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon -L src/server.ts",
     "start": "node dist/server.js",
+    "dev": "nodemon ./src/server.ts",
     "build": "tsc"
   },
   "dependencies": {

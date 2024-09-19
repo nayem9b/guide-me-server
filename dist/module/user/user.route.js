@@ -3,14 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.userRoutes = void 0;
 const express_1 = __importDefault(require("express"));
-const user_route_1 = require("../module/user/user.route");
 const router = express_1.default.Router();
-const moduleRoutes = [
-    {
-        path: "/",
-        route: user_route_1.userRoutes,
-    },
-];
-moduleRoutes.forEach((route) => router.use(route.path, route.route));
-exports.default = router;
+router.get('/user/me', (req, res) => {
+    res.json({ message: 'Welcome to the API!' });
+});
+exports.userRoutes = router;
